@@ -4,9 +4,8 @@
              x:Class="Lands.Views.LoginPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+            <Label Text="Login"
+            />
+        </StackLayout> 
     </ContentPage.Content>
 </ContentPage>
