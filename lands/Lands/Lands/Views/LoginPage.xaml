@@ -65,7 +65,7 @@
                 <Label
                     HorizontalOptions="Center"
                     Text="Forgot your password?"
-                    TextColor="Blue">
+                    TextColor="Aqua">
                 </Label>
                 <StackLayout
                     HorizontalOptions="Center"
