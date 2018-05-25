@@ -9,44 +9,43 @@
             <StackLayout 
             Padding="10,0,10,5">
                 <Label
-                FontAttributes="Bold"
-                FontSize="Large"
-                HorizontalOptions="Center"
-                Text="Lands"
-            />
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    HorizontalOptions="Center"
+                    Text="Lands"
+                />
                 <Image
-                Source="unionsovietica.png"
-                WidthRequest="200">
+                    Source="unionsovietica.png"
+                    WidthRequest="200">
                 </Image>
                 <Grid
-                Margin="0,10">
+                    Margin="0,10">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="2*"/>
                     </Grid.ColumnDefinitions>
                     <Label
-                    Grid.Row="0"
-                    Grid.Column="0"
-                    Text="e-mail"
-                    VerticalOptions="Center"
-                />
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Text="e-mail"
+                        VerticalOptions="Center"
+                    />
                     <Entry
-                    Grid.Row="0"
-                    Grid.Column="1"
-                    Keyboard="Email"
-                    Placeholder="enter your e-mail...">
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Keyboard="Email"
+                        Placeholder="enter your e-mail...">
                     </Entry>
                     <Label
-                    Grid.Row="1"
-                    Grid.Column="0"
-                    Text="Password"
-                    VerticalOptions="Center"
-                />
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Text="Password"
+                        VerticalOptions="Center"/>
                     <Entry
-                    Grid.Row="1"
-                    Grid.Column="1"
-                    IsPassword="True"
-                    Placeholder="enter your password...">
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        IsPassword="True"
+                        Placeholder="enter your password...">
                     </Entry>
                 </Grid>
                 <ActivityIndicator>
@@ -59,7 +58,7 @@
                     VerticalOptions="Center">
                     </Label>
                     <Switch
-                    HorizontalOptions="End">
+                        HorizontalOptions="End">
                     </Switch>
                 </StackLayout>
                 <Label
@@ -71,25 +70,25 @@
                     HorizontalOptions="Center"
                     Orientation="Horizontal">
                     <Button
-                    BackgroundColor="Navy"
-                    BorderRadius="23"
-                    HeightRequest="46"
-                    HorizontalOptions="FillAndExpand"    
-                    Text="Login"
-                    TextColor="White">
+                        BackgroundColor="Navy"
+                        BorderRadius="23"
+                        HeightRequest="46"
+                        HorizontalOptions="FillAndExpand"    
+                        Text="Login"
+                        TextColor="White">
                     </Button>
                     <Button
-                    BackgroundColor="Purple"
-                    BorderRadius="23"
-                    HeightRequest="46"
-                    HorizontalOptions="FillAndExpand"  
-                    Text="Register"
-                    TextColor="White">
+                        BackgroundColor="Purple"
+                        BorderRadius="23"
+                        HeightRequest="46"
+                        HorizontalOptions="FillAndExpand"  
+                        Text="Register"
+                        TextColor="White">
                     </Button>
                 </StackLayout>
                 <StackLayout
-                HorizontalOptions="Center"
-                Orientation="Horizontal">
+                    HorizontalOptions="Center"
+                    Orientation="Horizontal">
                     <Image
                     Source="facebook_logo.png"
                     WidthRequest="100">
