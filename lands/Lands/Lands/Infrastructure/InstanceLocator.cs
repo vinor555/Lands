@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Lands.ViewModels;
+﻿using Lands.ViewModels;
 namespace Lands.Infrastructure
 {
     class InstanceLocator

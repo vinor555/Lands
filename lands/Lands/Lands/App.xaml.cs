@@ -1,12 +1,11 @@
-using System;
+using Lands.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Lands.Views;
 
-[assembly: XamlCompilation (XamlCompilationOptions.Compile)]
+[assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Lands
 {
-	public partial class App : Application
+    public partial class App : Application
 	{
         #region Constructors
         public App()

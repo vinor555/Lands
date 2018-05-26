@@ -78,7 +78,8 @@
                         BorderRadius="23"
                         Command="{Binding LoginCommand}"
                         HeightRequest="46"
-                        HorizontalOptions="FillAndExpand"    
+                        HorizontalOptions="FillAndExpand"
+                        IsEnabled="{Binding IsEnabled, Mode=TwoWay}"
                         Text="Login"
                         TextColor="White">
                     </Button>
@@ -86,7 +87,8 @@
                         BackgroundColor="Purple"
                         BorderRadius="23"
                         HeightRequest="46"
-                        HorizontalOptions="FillAndExpand"  
+                        HorizontalOptions="FillAndExpand"
+                        IsEnabled="{Binding IsEnabled, Mode=TwoWay}"
                         Text="Register"
                         TextColor="White">
                     </Button>
