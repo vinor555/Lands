@@ -1,7 +1,6 @@
 ﻿using GalaSoft.MvvmLight.Command;
 using Lands.Models;
 using Lands.Services;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -17,14 +16,14 @@ namespace Lands.ViewModels
         #endregion
 
         #region Atributes
-        private ObservableCollection<Land> lands;
+        private ObservableCollection<LandItemViewModel> lands;//la propiedas se basa en landitemviewmodel porque así mantenemos la arquitectura
         private bool isRefreshing;
         private string filter;
         private List<Land> landsList;
         #endregion
 
         #region Properties  
-        public ObservableCollection<Land> Lands //está "Lands" es la que vamos a mandar a la LandPage para mostrar en listview
+        public ObservableCollection<LandItemViewModel> Lands //está "Lands" es la que vamos a mandar a la LandPage para mostrar en listview
         {
             get { return this.lands; }
             set { SetValue(ref this.lands, value); }
@@ -88,9 +87,43 @@ namespace Lands.ViewModels
             }
 
             this.landsList = (List<Land>)response.Result;//como devuelve un object hay que castearlo como una lista de Land y se usa para mantener todo el tiempo en memoria la lista original
-            this.Lands = new ObservableCollection<Land>(this.landsList);//aquí el objeto ya está en memoria fuck yes!!!
+            this.Lands = new ObservableCollection<LandItemViewModel>(
+                this.ToLandItemViewModel());//aquí el objeto ya está en memoria fuck yes!!!
             this.IsRefreshing = false;
         }
+        #endregion
+
+        #region Methods
+        private IEnumerable<LandItemViewModel> ToLandItemViewModel()
+        {
+            return this.landsList.Select(l => new LandItemViewModel
+            {
+                Alpha2Code = l.Alpha2Code,
+                Alpha3Code = l.Alpha3Code,
+                AltSpellings = l.AltSpellings,
+                Area = l.Area,
+                Borders = l.Borders,
+                CallingCodes = l.CallingCodes,
+                Capital = l.Capital,
+                Cioc = l.Cioc,
+                Currencies = l.Currencies,
+                Demonym = l.Demonym,
+                Flag = l.Flag,
+                Gini = l.Gini,
+                Languages = l.Languages,
+                Latlng = l.Latlng,
+                Name = l.Name,
+                NativeName = l.NativeName,
+                NumericCode = l.NumericCode,
+                Population = l.Population,
+                Region = l.Region,
+                RegionalBlocs = l.RegionalBlocs,
+                Subregion = l.Subregion,
+                Timezones = l.Timezones,
+                TopLevelDomain = l.TopLevelDomain,
+                Translations = l.Translations,
+            });
+        } 
         #endregion
 
         #region Commands
@@ -115,16 +148,18 @@ namespace Lands.ViewModels
         {
             if (string.IsNullOrEmpty(this.Filter))
             {
-                this.Lands = new ObservableCollection<Land>(
-                    this.landsList);
+                this.Lands = new ObservableCollection<LandItemViewModel>(
+                this.ToLandItemViewModel());
             }
             else
             {
-                this.Lands = new ObservableCollection<Land>(
-                    this.landsList.Where(
+                this.Lands = new ObservableCollection<LandItemViewModel>(
+                    this.ToLandItemViewModel().Where(
                         l => l.Name.ToLower().Contains(this.Filter.ToLower()) ||//.where va a filtrar el Filter de landview por paises
                              l.Capital.ToLower().Contains(this.Filter.ToLower())));//.where va a filtrar el Filter de landview por capitales
             }
         }
+
+        
     }
 }
