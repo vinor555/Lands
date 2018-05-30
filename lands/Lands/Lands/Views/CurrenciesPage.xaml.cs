@@ -4,9 +4,9 @@ using Xamarin.Forms.Xaml;
 namespace Lands.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class LoginPage : ContentPage
+	public partial class CurrenciesPage : ContentPage
 	{
-		public LoginPage ()
+		public CurrenciesPage ()
 		{
 			InitializeComponent ();
 		}
