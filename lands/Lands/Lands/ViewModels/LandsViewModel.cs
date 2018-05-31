@@ -19,7 +19,6 @@ namespace Lands.ViewModels
         private ObservableCollection<LandItemViewModel> lands;//la propiedas se basa en landitemviewmodel porque así mantenemos la arquitectura
         private bool isRefreshing;
         private string filter;
-        private List<Land> landsList;
         #endregion
 
         #region Properties  
@@ -86,7 +85,7 @@ namespace Lands.ViewModels
                 return;
             }
 
-            this.landsList = (List<Land>)response.Result;//como devuelve un object hay que castearlo como una lista de Land y se usa para mantener todo el tiempo en memoria la lista original
+            MainViewModel.GetInstance().LandsList = (List<Land>)response.Result;//como devuelve un object hay que castearlo como una lista de Land y se usa para mantener todo el tiempo en memoria la lista original
             this.Lands = new ObservableCollection<LandItemViewModel>(
                 this.ToLandItemViewModel());//aquí el objeto ya está en memoria fuck yes!!!
             this.IsRefreshing = false;
@@ -96,7 +95,7 @@ namespace Lands.ViewModels
         #region Methods
         private IEnumerable<LandItemViewModel> ToLandItemViewModel()
         {
-            return this.landsList.Select(l => new LandItemViewModel
+            return MainViewModel.GetInstance().LandsList.Select(l => new LandItemViewModel
             {
                 Alpha2Code = l.Alpha2Code,
                 Alpha3Code = l.Alpha3Code,
@@ -142,7 +141,6 @@ namespace Lands.ViewModels
                 return new RelayCommand(Search);
             }
         }
-        #endregion
 
         private void Search()
         {
@@ -159,7 +157,6 @@ namespace Lands.ViewModels
                              l.Capital.ToLower().Contains(this.Filter.ToLower())));//.where va a filtrar el Filter de landview por capitales
             }
         }
-
-        
+        #endregion
     }
 }
